@@ -4,78 +4,159 @@
   "cases": [
     {
       "description": "Abbreviate a phrase",
-      "cases": [
+      "scenarios": [
         {
           "description": "basic",
           "property": "abbreviate",
-          "input": {
-            "phrase": "Portable Network Graphics"
-          },
-          "expected": "PNG"
+          "input": [
+            {
+              "name": "phrase",
+              "type": "string",
+              "value": "Portable Network Graphics"
+            }
+          ],
+          "expected": [
+            {
+              "type": "string",
+              "value": "PNG"
+            }
+          ]
         },
         {
           "description": "lowercase words",
           "property": "abbreviate",
-          "input": {
-            "phrase": "Ruby on Rails"
-          },
-          "expected": "ROR"
+          "input": [
+            {
+              "name": "phrase",
+              "type": "string",
+              "value": "Ruby on Rails"
+            }
+          ],
+          "expected": [
+            {
+              "type": "string",
+              "value": "ROR"
+            }
+          ]
         },
         {
           "description": "punctuation",
           "property": "abbreviate",
-          "input": {
-            "phrase": "First In, First Out"
-          },
-          "expected": "FIFO"
+          "input": [
+            {
+              "name": "phrase",
+              "type": "string",
+              "value": "First In, First Out"
+            }
+          ],
+          "expected": [
+            {
+              "type": "string",
+              "value": "FIFO"
+            }
+          ]
         },
         {
           "description": "all caps word",
           "property": "abbreviate",
-          "input": {
-            "phrase": "GNU Image Manipulation Program"
-          },
-          "expected": "GIMP"
+          "input": [
+            {
+              "name": "phrase",
+              "type": "string",
+              "value": "GNU Image Manipulation Program"
+            }
+          ],
+          "expected": [
+            {
+              "type": "string",
+              "value": "GIMP"
+            }
+          ]
         },
         {
           "description": "punctuation without whitespace",
           "property": "abbreviate",
-          "input": {
-            "phrase": "Complementary metal-oxide semiconductor"
-          },
-          "expected": "CMOS"
+          "input": [
+            {
+              "name": "phrase",
+              "type": "string",
+              "value": "Complementary metal-oxide semiconductor"
+            }
+          ],
+          "expected": [
+            {
+              "type": "string",
+              "value": "CMOS"
+            }
+          ]
         },
         {
           "description": "very long abbreviation",
           "property": "abbreviate",
-          "input": {
-            "phrase": "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
-          },
-          "expected": "ROTFLSHTMDCOALM"
+          "input": [
+            {
+              "name": "phrase",
+              "type": "string",
+              "value": "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
+            }
+          ],
+          "expected": [
+            {
+              "type": "string",
+              "value": "ROTFLSHTMDCOALM"
+            }
+          ]
         },
         {
           "description": "consecutive delimiters",
           "property": "abbreviate",
-          "input": {
-            "phrase": "Something - I made up from thin air"
-          },
-          "expected": "SIMUFTA"
+          "input": [
+            {
+              "name": "phrase",
+              "type": "string",
+              "value": "Something - I made up from thin air"
+            }
+          ],
+          "expected": [
+            {
+              "type": "string",
+              "value": "SIMUFTA"
+            }
+          ]
         },
         {
           "description": "apostrophes",
           "property": "abbreviate",
           "input": {
-            "phrase": "Halley's Comet"
-          },
-          "expected": "HC"
+            {
+              "name": "phrase",
+              "type": "string",
+              "value": "Halley's Comet"
+            }
+          ],
+          "expected": [
+            {
+              "type": "string",
+              "value": "HC"
+            }
+          ]
         },
         {
           "description": "underscore emphasis",
           "property": "abbreviate",
           "input": {
-            "phrase": "The Road _Not_ Taken"
-          },
-          "expected": "TRNT"
+            {
+              "name": "phrase",
+              "type": "string",
+              "value": "The Road _Not_ Taken"
+            }
+          ],
+          "expected": [
+            {
+              "type": "string",
+              "value": "TRNT"
+            }
+          ]
         }
       ]
     }
