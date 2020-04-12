@@ -10,6 +10,7 @@ generics
 inheritance
 interfaces
 loops
+operator_overloading
 pattern_matching
 polymorphism
 recursion
@@ -32,6 +33,7 @@ lists
 maps
 matrices
 optional_values
+pointers
 queues
 records
 sequences
@@ -49,6 +51,7 @@ algorithms
 bitwise_operations
 concurrency
 cryptography
+data_structures
 domain_specific_languages
 files
 filtering

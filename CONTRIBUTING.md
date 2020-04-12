@@ -17,7 +17,7 @@ This guide covers several common scenarios pertaining to **improving the languag
 themselves. There are other guides about contributing to other parts of the Exercism ecosystem.
 
 * [The Command-Line Client](https://github.com/exercism/cli/blob/master/README.md)
-* [The Website](https://github.com/exercism/exercism.io/blob/master/CONTRIBUTING.md)
+* [The Website](https://github.com/exercism/website/blob/master/CONTRIBUTING.md)
 * [The Exercises API](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md) (used by both the command-line client and the website)
 
 ## Table of Contents
@@ -187,9 +187,9 @@ needs to be made in the [exercism/problem-specifications repository](https://git
 not directly to the test suite itself.
 
 Find the JSON file for the problem in question. For example, if you want to change
-the Clock problem, then look for `exercises/clock/canonical-data.json`. Each 
+the Clock problem, then look for `exercises/clock/canonical-data.json`. Each
 change should also bump the version of the test data. For more information,
-see the [test data versioning](README.md#test-data-versioning) section of the 
+see the [test data versioning](README.md#test-data-versioning) section of the
 README.
 
 Submit a pull request with the change.

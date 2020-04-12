@@ -1,6 +1,6 @@
 {
   "exercise": "simple-cipher",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "comments":
     ["Some of the strings used in this file are symbolic and do not represent their literal value. They are:",
       "cipher.key - Represents the Cipher key",
@@ -87,7 +87,7 @@
           "expected": "qayaeaagaciai"
         },
         {
-          "description": "Can wrap on encode", 
+          "description": "Can wrap on encode",
           "property": "encode",
           "input": {
             "key": "abcdefghij",
@@ -105,13 +105,22 @@
           "expected": "zzzzzzzzzz"
         },
         {
-          "description": "Can handle messages longer than the key",
+          "description": "Can encode messages longer than the key",
           "property": "encode",
           "input": {
             "key": "abc",
             "plaintext": "iamapandabear"
           },
           "expected": "iboaqcnecbfcr"
+        },
+        {
+          "description": "Can decode messages longer than the key",
+          "property": "decode",
+          "input": {
+            "key": "abc",
+            "ciphertext": "iboaqcnecbfcr"
+          },
+          "expected": "iamapandabear"
         }
       ]
     }

@@ -35,12 +35,12 @@ There are three metadata files:
 ## Test Data Format (canonical-data.json)
 
 This data can be incorporated into test programs manually or extracted by a
-program.  The file format is described in `canonical-schema.json`, but it
+program.  The file format is described in [canonical-schema.json](https://github.com/exercism/problem-specifications/blob/master/canonical-schema.json), but it
 is easier to understand with an example:
 
 ```json
 { "exercise": "foobar"
-, "version" : "1.0.0"
+, "version" : "1.1.0"
 , "comments":
     [ " Comments are always optional and can be used almost anywhere.      "
     , "                                                                    "
@@ -76,7 +76,7 @@ is easier to understand with an example:
       , "input"      : {
           "firstName"  : "Alan",
           "lastName"   : "Smithee"
-        }  
+        }
       , "expected"   : "ASlmainthee"
       }
     , { "comments":
@@ -92,12 +92,21 @@ is easier to understand with an example:
               }
             , "expected"   : null
             }
+          , { "description": "Foo'ing a very big number returns nothing"
+            , "optional"   : "big-ints"
+            , "comments"   : [ "Making this test case pass requires using BigInts." ]
+            , "property"   : "foo"
+            , "input"      : {
+                "word"       : "28948022309329048855892746252171976962977213799489202546401021394546514198529"
+              }
+            , "expected"   : null
+            }
           , { "description": "Bar'ing a name with numbers gives an error"
             , "property"   : "bar"
             , "input"      : {
                 "firstName"  : "HAL",
                 "lastName"   : "9000"
-              }  
+              }
             , "expected"   : { "error": "You should never bar a number" }
             }
           ]
@@ -118,6 +127,15 @@ There are also some conventions that must be followed:
   - If an error is expected (because the input is invalid, or any other reason), the value at `"expected"` should be an object containing exactly one property, `"error"`, whose value is a string.
     - The string should explain why the error would occur.
     - A particular track's implementation of the exercise **need not** necessarily check that the error includes that exact string as the cause, depending on what is idiomatic in the language (it may not be idiomatic to check strings for error messages).
+  - Test cases that only some tracks should implement, for example because it would unnecessarily increase the complexity of the exercise in some but not all languages, mark it with an `optional`-key. Multiple cases related to the same reason for optionality should have the same key. The decision that a test case is optional will often be made in the PR discussion, so don't worry about it too much while creating a PR.
+
+The `canonical.json` file can be validated against its schema prior to commiting using https://www.jsonschemavalidator.net/ with...
+```
+{
+	"$schema": "https://github.com/exercism/problem-specifications/blob/master/canonical-schema.json"
+}
+```
+
 
 ### Test Data Versioning
 
@@ -132,8 +150,8 @@ Test data should be versioned according to [Semantic Version 2.0](http://semver.
 
 #### MAJOR version changes
 
-The MAJOR version should be changed when the test suite is modified in a 
-fundamentally incompatible way. 
+The MAJOR version should be changed when the test suite is modified in a
+fundamentally incompatible way.
 
 There are examples of changes requiring a MAJOR version change:
 
@@ -146,7 +164,7 @@ MAJOR changes should be expected to break even well-behaved test generators.
 
 #### MINOR version changes
 
-The MINOR version should change when you add functionality in a backwards-compatible manner, make 
+The MINOR version should change when you add functionality in a backwards-compatible manner, make
 non-breaking changes that alter the meaning of the test suite, make previously
 passing solutions possibly fail, or failing solutions fail at a different spot.
 
@@ -167,7 +185,7 @@ There are examples of changes requiring a PATCH version change:
 
 - Regrouping/"Renesting" test cases without changing test case ordering.
 - Changing descriptions or comments.
-- Changing keys' ordering or formatting (would result in an equivalent JSON file).    
+- Changing keys' ordering or formatting (would result in an equivalent JSON file).
 
 PATCH changes would never break well-designed test generators, because the test data remains exactly the same.
 
